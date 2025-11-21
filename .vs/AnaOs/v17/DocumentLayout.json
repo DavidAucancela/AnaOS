@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\AccesoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Controllers\\AccesoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Custom\\Utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Custom\\Utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\AnaOSProject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\AnaOSProject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Models\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Models\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\CooperativaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AnaOSProject\\Controllers\\CooperativaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Utilidades.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Custom\\Utilidades.cs",
+              "RelativeDocumentMoniker": "AnaOSProject\\Custom\\Utilidades.cs",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Custom\\Utilidades.cs",
+              "RelativeToolTip": "AnaOSProject\\Custom\\Utilidades.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T20:43:51.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccesoController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\AccesoController.cs",
+              "RelativeDocumentMoniker": "AnaOSProject\\Controllers\\AccesoController.cs",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\AccesoController.cs",
+              "RelativeToolTip": "AnaOSProject\\Controllers\\AccesoController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAswEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:59:47.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AnaOSProject\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AnaOSProject\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-13T18:57:58.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AnaOSProject.csproj",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\AnaOSProject.csproj",
+              "RelativeDocumentMoniker": "AnaOSProject\\AnaOSProject.csproj",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\AnaOSProject.csproj",
+              "RelativeToolTip": "AnaOSProject\\AnaOSProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-13T18:57:52.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Program.cs",
+              "RelativeDocumentMoniker": "AnaOSProject\\Program.cs",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Program.cs",
+              "RelativeToolTip": "AnaOSProject\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:37:44.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\appsettings.json",
+              "RelativeDocumentMoniker": "AnaOSProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\appsettings.json",
+              "RelativeToolTip": "AnaOSProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-13T18:56:40.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "AnaOSProject\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Models\\Usuario.cs",
+              "RelativeToolTip": "AnaOSProject\\Models\\Usuario.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:41:35.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CooperativaController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\CooperativaController.cs",
+              "RelativeDocumentMoniker": "AnaOSProject\\Controllers\\CooperativaController.cs",
+              "ToolTip": "C:\\Users\\david\\Proyectos.NET\\AnaOs\\AnaOSProject\\Controllers\\CooperativaController.cs",
+              "RelativeToolTip": "AnaOSProject\\Controllers\\CooperativaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:39:38.808Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
