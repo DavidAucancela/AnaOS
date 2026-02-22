@@ -1,0 +1,35 @@
+## .NET / Visual Studio
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.log
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+
+## Publish / Release
+publish/
+out/
+
+## Environment & secrets
+appsettings.Development.json
+*.env
+.env
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Node / Frontend (complementa el .gitignore de Frontend/)
+node_modules/
+dist/
+.cache/
