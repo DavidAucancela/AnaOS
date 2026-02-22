@@ -157,7 +157,7 @@ SELECT
     s.moneda,
     s.periodo,
     s.renovacion_automatica,
-    DATEDIFF(s.fecha_fin, CURRENT_TIMESTAMP) AS dias_restantes
+    EXTRACT(DAY FROM (s.fecha_fin - CURRENT_TIMESTAMP))::INT AS dias_restantes
 FROM suscripciones s
 INNER JOIN cooperativas c ON s.id_cooperativa = c.id_cooperativa
 INNER JOIN planes_suscripcion p ON s.id_plan = p.id_plan
@@ -165,7 +165,7 @@ WHERE s.estado = 'active';
 
 -- Vista para suscripciones próximas a vencer (próximos 30 días)
 CREATE OR REPLACE VIEW vw_suscripciones_por_vencer AS
-SELECT 
+SELECT
     s.id_suscripcion,
     s.id_cooperativa,
     c.nombre AS nombre_cooperativa,
@@ -174,7 +174,7 @@ SELECT
     s.fecha_fin,
     s.proxima_fecha_cobro,
     s.renovacion_automatica,
-    DATEDIFF(s.fecha_fin, CURRENT_TIMESTAMP) AS dias_restantes
+    EXTRACT(DAY FROM (s.fecha_fin - CURRENT_TIMESTAMP))::INT AS dias_restantes
 FROM suscripciones s
 INNER JOIN cooperativas c ON s.id_cooperativa = c.id_cooperativa
 INNER JOIN planes_suscripcion p ON s.id_plan = p.id_plan
