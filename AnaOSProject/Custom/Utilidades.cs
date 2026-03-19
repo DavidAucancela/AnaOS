@@ -48,7 +48,10 @@ namespace AnaOSProject.Custom
                 userClaims.Add(new Claim("idCooperativa", modelo.IdCooperativa.Value.ToString()));
             }
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? "F8096D78-03DA-4911-B291-6E6A35ECF058"));
+            var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY")
+                ?? _configuration["Jwt:Key"]
+                ?? throw new InvalidOperationException("JWT_KEY no está configurado.");
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
             var jwtConfig = new JwtSecurityToken(

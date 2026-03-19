@@ -1,0 +1,24 @@
+# Credenciales y configuración local sensible
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

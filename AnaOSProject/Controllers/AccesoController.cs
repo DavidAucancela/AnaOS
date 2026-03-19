@@ -72,10 +72,10 @@ namespace AnaOSProject.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError, 
                         new { isSuccess = false, message = "Error al registrar el usuario." });
             }
-            catch (Exception ex)
+            catch
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, 
-                    new { isSuccess = false, message = $"Error: {ex.Message}" });
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { isSuccess = false, message = "Error interno del servidor." });
             }
         }
 
@@ -191,7 +191,7 @@ namespace AnaOSProject.Controllers
                     catch { }
 
                     return StatusCode(StatusCodes.Status500InternalServerError,
-                        new { isSuccess = false, message = $"Error al crear la agencia matriz: {ex.Message}" });
+                        new { isSuccess = false, message = "Error al crear la agencia matriz." });
                 }
 
                 // Crear el usuario asociado a la cooperativa
@@ -260,10 +260,10 @@ namespace AnaOSProject.Controllers
                         new { isSuccess = false, message = "Error al registrar el usuario." });
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    new { isSuccess = false, message = $"Error: {ex.Message}" });
+                    new { isSuccess = false, message = "Error interno del servidor." });
             }
         }
 
@@ -281,42 +281,13 @@ namespace AnaOSProject.Controllers
 
                 var correoNormalizado = objeto.Correo.Trim().ToLower();
                 var passwordHash = Utilidades.EncriptarSHA256(objeto.Contrasena);
-                
-                // Primero buscar el usuario por correo
-                var usuarioPorCorreo = await _usuarioService.GetByCorreoAsync(correoNormalizado);
-                
-                if (usuarioPorCorreo == null)
-                {
-                    return StatusCode(StatusCodes.Status401Unauthorized, 
-                        new { isSuccess = false, message = "Credenciales inválidas. Usuario no encontrado." });
-                }
 
-                // TEMPORAL: Debug información
-                var hashEnBD = usuarioPorCorreo.ContrasenaHash;
-                var hashCoincide = hashEnBD == passwordHash;
-                
-                // Verificar la contraseña
                 var usuarioEncontrado = await _usuarioService.LoginAsync(correoNormalizado, passwordHash);
 
                 if (usuarioEncontrado == null)
                 {
-                    // El usuario existe pero la contraseña es incorrecta
-                    // TEMPORAL: Devolver información de debug
-                    return StatusCode(StatusCodes.Status401Unauthorized, 
-                        new { 
-                            isSuccess = false, 
-                            message = "Credenciales inválidas. Contraseña incorrecta.",
-                            debug = new {
-                                correoBuscado = correoNormalizado,
-                                correoEnBD = usuarioPorCorreo.Correo,
-                                hashGenerado = passwordHash,
-                                hashEnBD = hashEnBD,
-                                hashCoincide = hashCoincide,
-                                longitudHashGenerado = passwordHash.Length,
-                                longitudHashBD = hashEnBD?.Length ?? 0,
-                                contrasenaIngresada = objeto.Contrasena
-                            }
-                        });
+                    return StatusCode(StatusCodes.Status401Unauthorized,
+                        new { isSuccess = false, message = "Credenciales inválidas." });
                 }
 
                 var token = _utilidades.GenerarJWT(usuarioEncontrado);
@@ -337,19 +308,11 @@ namespace AnaOSProject.Controllers
                         }
                     });
             }
-            catch (Exception ex)
+            catch
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, 
-                    new { isSuccess = false, message = $"Error: {ex.Message}", stackTrace = ex.StackTrace });
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { isSuccess = false, message = "Error interno del servidor." });
             }
-        }
-
-        // GET: api/Acceso/GenerateHash/{password} - TEMPORAL: Para generar hash de contraseñas
-        [HttpGet("GenerateHash/{password}")]
-        public IActionResult GenerateHash(string password)
-        {
-            var hash = Utilidades.EncriptarSHA256(password);
-            return Ok(new { password = password, hash = hash });
         }
 
         // POST: api/Acceso/ResetPassword
@@ -412,64 +375,10 @@ namespace AnaOSProject.Controllers
                         message = "Si el correo está registrado, recibirás un email con tu nueva contraseña."
                     });
             }
-            catch (Exception ex)
+            catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
-                    new { isSuccess = false, message = $"Error: {ex.Message}" });
-            }
-        }
-
-        // GET: api/Acceso/DebugLogin/{correo} - TEMPORAL: Para depurar problemas de login
-        [HttpGet("DebugLogin/{correo}")]
-        public async Task<IActionResult> DebugLogin(string correo)
-        {
-            try
-            {
-                var correoNormalizado = correo.Trim().ToLower();
-                var usuario = await _usuarioService.GetByCorreoAsync(correoNormalizado);
-                
-                if (usuario == null)
-                {
-                    return Ok(new { 
-                        encontrado = false, 
-                        mensaje = "Usuario no encontrado",
-                        correoBuscado = correoNormalizado
-                    });
-                }
-
-                var hashAdmin123 = Utilidades.EncriptarSHA256("admin123");
-                var hashEnBD = usuario.ContrasenaHash ?? "";
-                
-                // Comparación caracter por caracter para encontrar diferencias
-                var diferencias = new List<object>();
-                var minLength = Math.Min(hashAdmin123.Length, hashEnBD.Length);
-                for (int i = 0; i < minLength; i++)
-                {
-                    if (hashAdmin123[i] != hashEnBD[i])
-                    {
-                        diferencias.Add(new { posicion = i, esperado = hashAdmin123[i], encontrado = hashEnBD[i] });
-                    }
-                }
-                
-                return Ok(new { 
-                    encontrado = true,
-                    correoBuscado = correoNormalizado,
-                    correoEnBD = usuario.Correo,
-                    hashEnBD = hashEnBD,
-                    hashGeneradoParaAdmin123 = hashAdmin123,
-                    hashCoincide = usuario.ContrasenaHash == hashAdmin123,
-                    longitudHashBD = hashEnBD.Length,
-                    longitudHashGenerado = hashAdmin123.Length,
-                    diferencias = diferencias,
-                    hashEnBDBytes = System.Text.Encoding.UTF8.GetBytes(hashEnBD).Select(b => b.ToString("x2")).ToArray(),
-                    hashGeneradoBytes = System.Text.Encoding.UTF8.GetBytes(hashAdmin123).Select(b => b.ToString("x2")).ToArray(),
-                    rol = usuario.Rol
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, 
-                    new { error = ex.Message, stackTrace = ex.StackTrace });
+                    new { isSuccess = false, message = "Error interno del servidor." });
             }
         }
     }

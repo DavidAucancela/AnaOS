@@ -31,8 +31,16 @@ public partial class AnaOSDbContext : DbContext
     public virtual DbSet<HistorialSuscripcion> HistorialSuscripciones { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5434;Database=AnaOSDB;Username=postgres;Password=admin");
+    {
+        // Solo se ejecuta si el contexto no fue configurado por inyección de dependencias (ej. en migraciones CLI).
+        // En producción/Railway, AddDbContext en Program.cs ya configura las opciones y este bloque no se ejecuta.
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
+                ?? "Host=localhost;Port=5434;Database=AnaOSDB;Username=postgres;Password=admin";
+            optionsBuilder.UseNpgsql(connectionString);
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
