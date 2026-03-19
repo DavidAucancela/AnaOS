@@ -155,6 +155,13 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// ── Auto-migración al arrancar (necesario en Railway) ─────────────────────────
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AnaOSDbContext>();
+    db.Database.EnsureCreated();
+}
+
 // ── Pipeline HTTP ─────────────────────────────────────────────────────────────
 if (app.Environment.IsDevelopment())
 {
