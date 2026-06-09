@@ -20,8 +20,10 @@ import Usuarios from "./pages/Usuarios";
 import Agencias from "./pages/Agencias";
 import Cooperativas from "./pages/Cooperativas";
 import Payment from "./pages/Payment";
+import PaymentProfessional from "./pages/PaymentProfessional";
+import PaymentEnterprise from "./pages/PaymentEnterprise";
 import Suscripciones from "./pages/Suscripciones";
-
+import Socios from "./pages/Socios";
 
 
 const queryClient = new QueryClient();
@@ -96,21 +98,45 @@ const App = () => (
                   </ProtectedRoute>
                 } 
               />
-              <Route 
-                path="/payment" 
+              <Route
+                path="/payment"
                 element={
                   <ProtectedRoute>
                     <Payment />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/dashboard/admin/suscripciones" 
+              <Route
+                path="/payment/professional"
+                element={
+                  <ProtectedRoute>
+                    <PaymentProfessional />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/payment/enterprise"
+                element={
+                  <ProtectedRoute>
+                    <PaymentEnterprise />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/admin/suscripciones"
                 element={
                   <ProtectedRoute allowedRoles={['Administrador']}>
                     <Suscripciones />
                   </ProtectedRoute>
-                } 
+                }
+              />
+              <Route
+                path="/socios"
+                element={
+                  <ProtectedRoute allowedRoles={['Cooperativa', 'UsuarioCooperativa']}>
+                    <Socios />
+                  </ProtectedRoute>
+                }
               />
 
               <Route path="*" element={<NotFound />} />

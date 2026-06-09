@@ -94,6 +94,7 @@ builder.Services.AddScoped<ICuentaRepository, CuentaRepository>();
 builder.Services.AddScoped<IPlanSuscripcionRepository, PlanSuscripcionRepository>();
 builder.Services.AddScoped<ISuscripcionRepository, SuscripcionRepository>();
 builder.Services.AddScoped<IHistorialSuscripcionRepository, HistorialSuscripcionRepository>();
+builder.Services.AddScoped<ISocioRepository, SocioRepository>();
 
 // Servicios
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
@@ -103,6 +104,7 @@ builder.Services.AddScoped<IAgenciaService, AgenciaService>();
 builder.Services.AddScoped<ICuentaService, CuentaService>();
 builder.Services.AddScoped<IPlanSuscripcionService, PlanSuscripcionService>();
 builder.Services.AddScoped<ISuscripcionService, SuscripcionService>();
+builder.Services.AddScoped<ISocioService, SocioService>();
 
 // ── JWT: prioridad env var JWT_KEY > appsettings.json ───────────────────────
 var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY")
@@ -133,7 +135,13 @@ var allowedOrigins = new List<string>
 {
     "http://localhost:8080",
     "http://localhost:5173",
-    "http://localhost:3000"
+    "http://localhost:5174",
+    "http://localhost:3000",
+    "http://localhost:8081",
+    "http://localhost:8082",
+    "http://localhost:8083",
+    "http://localhost:8084",
+    "http://localhost:8085",
 };
 
 var allowedOriginsEnv = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS");

@@ -30,6 +30,8 @@ public partial class AnaOSDbContext : DbContext
 
     public virtual DbSet<HistorialSuscripcion> HistorialSuscripciones { get; set; }
 
+    public virtual DbSet<Socio> Socios { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // Solo se ejecuta si el contexto no fue configurado por inyección de dependencias (ej. en migraciones CLI).
@@ -131,6 +133,22 @@ public partial class AnaOSDbContext : DbContext
             entity.HasOne(d => d.IdPlanNavigation).WithMany(p => p.Suscripciones)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("suscripciones_id_plan_fkey");
+        });
+
+        modelBuilder.Entity<Socio>(entity =>
+        {
+            entity.HasKey(e => e.IdSocio).HasName("socios_pkey");
+
+            entity.HasIndex(e => new { e.Cedula, e.IdCooperativa }).IsUnique().HasDatabaseName("socios_cedula_cooperativa_key");
+
+            entity.Property(e => e.Estado).HasDefaultValue("Activo");
+            entity.Property(e => e.FechaCreacion).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            entity.Property(e => e.FechaActualizacion).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            entity.Property(e => e.FechaIngreso).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+            entity.HasOne(d => d.IdCooperativaNavigation).WithMany(p => p.Socios)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("socios_id_cooperativa_fkey");
         });
 
         modelBuilder.Entity<HistorialSuscripcion>(entity =>

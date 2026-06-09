@@ -65,4 +65,7 @@ public partial class Cooperativa
 
     [InverseProperty("IdCooperativaNavigation")]
     public virtual ICollection<Suscripcion> Suscripciones { get; set; } = new List<Suscripcion>();
+
+    [InverseProperty("IdCooperativaNavigation")]
+    public virtual ICollection<Socio> Socios { get; set; } = new List<Socio>();
 }

@@ -5,6 +5,7 @@ using AnaOSProject.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AnaOSProject.Controllers;
 
@@ -23,7 +24,7 @@ public class SuscripcionController : ControllerBase{
 
     private async Task<Usuario?> GetUsuarioActualAsync()
     {
-        var correo = User.Identity?.Name;
+        var correo = User.FindFirst(ClaimTypes.Email)?.Value;
         if (string.IsNullOrEmpty(correo))
             return null;
 

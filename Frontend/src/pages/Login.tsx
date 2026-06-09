@@ -84,6 +84,12 @@ export default function Login() {
       {/* Columna izquierda: Formulario de Login */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-8 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="max-w-sm w-full bg-white rounded-xl shadow-lg p-6">
+          <div className="mb-4">
+            <Link to="/" className="inline-flex items-center text-xs text-gray-500 hover:text-blue-600 transition-colors">
+              <span className="mr-1">←</span> Volver al inicio
+            </Link>
+          </div>
+
           <div className="text-center mb-6">
             <h1 className="text-2xl font-bold text-gray-900 mb-1">Iniciar Sesión</h1>
             <p className="text-sm text-gray-600">Ingresa tus credenciales</p>

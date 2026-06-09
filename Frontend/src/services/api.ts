@@ -2,6 +2,64 @@
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5133/api';
 
+export interface SocioDTO {
+  idSocio: number;
+  idCooperativa: number;
+  cedula: string;
+  nombres: string;
+  apellidos: string;
+  telefono?: string;
+  correo?: string;
+  direccion?: string;
+  estado: string;
+  fechaIngreso?: string;
+  fechaCreacion?: string;
+}
+
+export interface SocioCreateDTO {
+  idCooperativa: number;
+  cedula: string;
+  nombres: string;
+  apellidos: string;
+  telefono?: string;
+  correo?: string;
+  direccion?: string;
+  fechaIngreso?: string;
+}
+
+export interface SocioUpdateDTO {
+  nombres?: string;
+  apellidos?: string;
+  telefono?: string;
+  correo?: string;
+  direccion?: string;
+  estado?: string;
+  fechaIngreso?: string;
+}
+
+export interface CooperativaAnalytics {
+  agencias: number;
+  cuentas: { total: number; activas: number; cerradas: number };
+  usuarios: number;
+  socios: { total: number; activos: number; inactivos: number };
+  suscripcion: {
+    plan: string;
+    estado: string;
+    periodo: string;
+    fechaFin: string;
+    diasRestantes: number;
+  } | null;
+}
+
+export interface AdminAnalytics {
+  totalCooperativas: number;
+  totalUsuarios: number;
+  suscripcionesActivas: number;
+  ingresosEstimadosMensual: number;
+  distribucionPlanes: { plan: string; cantidad: number }[];
+  nuevasPorMes: { label: string; cantidad: number }[];
+}
+
 export interface LoginRequest {
   correo: string;
   contrasena: string;
@@ -692,6 +750,30 @@ class ApiService {
   // Obtener todas las cooperativas con sus suscripciones (para admin)
   async getAllCooperativasWithSubscriptions(): Promise<ApiResponse<Array<CooperativaDTO & { suscripcion?: SuscripcionDTO }>>> {
     return this.request<Array<CooperativaDTO & { suscripcion?: SuscripcionDTO }>>('/Cooperativa/WithSubscriptions');
+  }
+
+  async getSociosByCooperativa(idCooperativa: number): Promise<ApiResponse<SocioDTO[]>> {
+    return this.request<SocioDTO[]>(`/Socio/ByCooperativa/${idCooperativa}`);
+  }
+
+  async createSocio(data: SocioCreateDTO): Promise<ApiResponse<SocioDTO>> {
+    return this.request<SocioDTO>('/Socio', { method: 'POST', body: JSON.stringify(data) });
+  }
+
+  async updateSocio(id: number, data: SocioUpdateDTO): Promise<ApiResponse<SocioDTO>> {
+    return this.request<SocioDTO>(`/Socio/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+  }
+
+  async deactivateSocio(id: number): Promise<ApiResponse<void>> {
+    return this.request<void>(`/Socio/${id}`, { method: 'DELETE' });
+  }
+
+  async getCooperativaAnalytics(): Promise<ApiResponse<CooperativaAnalytics>> {
+    return this.request<CooperativaAnalytics>('/Analytics/cooperativa');
+  }
+
+  async getAdminAnalytics(): Promise<ApiResponse<AdminAnalytics>> {
+    return this.request<AdminAnalytics>('/Analytics/admin');
   }
 }
 
